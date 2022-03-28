@@ -1,0 +1,24 @@
+<h2>Products</h2>
+<!-- structural directive because it changes the structure of the DOM-->
+<div *ngFor="let myProduct of products">
+  <h3>
+    <!-- [properites] -->
+    <a [title]="myProduct.name + ' details'">
+      <!-- string interpolation -->
+    
+      {{ myProduct.name }}
+    </a>
+    <p *ngIf="myProduct.description">Description : {{ myProduct.description }}</p>
+    <p>${{ myProduct.price}}</p>
+  </h3>
+  <!-- event binding in angular -->
+  <button type="button" (click)="share()">Share</button>
+  <!-- PROPERTY BINDING -->
+  <app-product-alerts [product]="myProduct" (notify)="onNotify()">
+  </app-product-alerts>
+</div>
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->
